@@ -3,7 +3,14 @@
 
 ### Summary
 
-[Introduction](#Introduction)
+[Introduction](#Introduction)<br>
+[Threat model](#Threat-model)<br>
+[Setup](#Setup)<br>
+[Execution](#Execution)<br>
+[Results](#Results)<br>
+[Conclusions](#Conclusions)<br>
+[Further developments](#Further-developments)<br>
+[Sources](#Sources)<br>
 
 ### Introduction
 
@@ -11,7 +18,7 @@ This report describes the exploitation of an ElasticSearch [1](#Sources)
 vulnerability present on a victim's machine using an attacking machine able to execute the exploit.
 
 
-Threat model
+### Threat model
 
 The threat model entails an attacker already inside the private network of the victim and able to establish a connection to
 the victim's machine. As an hypothesis, the attacker is interested in downloading the contents of a file managed by the
@@ -19,7 +26,7 @@ victim's machine Administrator; disruption of operation is not paramount in this
 as trying to acquire proprietary knowledge without alerting the legitimate owner in order to sell it to a potential buyer.
 
 
-Setup
+### Setup
 
 metasploitable3-workspace_win2k8_1742132564644_45096 [2] Virtual Machine (VM) as the victim's machine.
 
@@ -30,7 +37,7 @@ necessary to exfiltrate the file from the victim's machine; the attack uses expl
 to gain access to the victim's machine file system.
 
 
-Execution
+### Execution
 
 The victim machine is on during the execution of the exploit with user 'vagrant' as the authenticated user.
 
@@ -80,26 +87,26 @@ The attacker can then perform further actions; when satisfied, the connection is
 terminal. Finally, the execution completes with the final "exit" instruction present in "exfiltration.rc".
 
 
-Results
+### Results
 
 At the end of execution, the file "important.txt" is successfully downloaded to the attacker's machine inside the
 /home/kali directory.
 
 
-Conclusions
+### Conclusions
 
 This experiment has proven that a vulnerability allowing for Remote Code Execution (RCE) in textual input is sufficient
 to gain control of the victim's machine. 
 
 
-Further developments
+### Further developments
 
 This demo can be further expanded by allowing for a dynamic choice of the victim's machine and the execution of a more powerful
 exploit to gain access to the Administrator's hashed password, using an instrument like "John the Ripper" to infere the password
 from the hash and gain access to the Administrator's account.
 
 
-Sources
+### Sources
 
 [1] https://it.wikipedia.org/wiki/Elasticsearch
 
